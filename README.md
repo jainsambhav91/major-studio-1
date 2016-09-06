@@ -32,6 +32,18 @@ Work for major studio course - Tuesdays and Thursdays
 
 
 2. Supplemental Sources [1]
-    - Building on the idea that 
+
+
+    - [UNU WIDER World Income Inequality Database] (https://www.wider.unu.edu/sites/default/files/WIID/WIID_ver3_sept15_0.xls)  
+      Building on the idea that institutional quality plays an important role in determining the inequality conditions of a country, I would like to see how the Gini index of the SSA nations compares with their political rights score and their dependence on natural resources, the hypothesis being that nations with high resource dependence may have poor governanace, and in turn are deal with higher inequality.  
+      This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time.
+
+
+    - [Transparency international Corruption perception index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
+      With the Political Rights Score, I would also like to see if the corruption measures of the resource-dependent nations are worse that those of less resource-dependent nations.  
+      The Corruption Perceptions Index ranks countries and territories based on how corrupt their public sector is perceived to be. It is a combination of polls – drawing on corruption-related data collected by a variety of reputable institutions. 
+
+    - 
+      
 3. Questions
     - [add here]

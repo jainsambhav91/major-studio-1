@@ -85,9 +85,10 @@ Work for major studio course - Tuesdays and Thursdays
       This data captures the Gross National Incomes of countries and territories for the year 2014. The hypothesis behind choosing this data is that a higher level of gender inequality in a nation may lead to a lower gross national income, indicating a higher level of poverty.
 
     - [World Development Indicators - Unemployment Data] (http://databank.worldbank.org/data/reports.aspx?source=2&series=SL.UEM.1524.ZS&country=)  
-       
-
-    - [] ()  
+      To understand how gender inequality relates to the overall unemployment rates. This dataset from the World Development Indicators provides a list of unemployment rates for all countires for the past 5 year period.  
+      
+    - [Human Development Index - UNDP Human Development Report Table 1] (http://hdr.undp.org/en/composite/HDI):  
+      A composite index measuring average achievement in three basic dimensions of human development—a long and healthy life, knowledge and a decent standard of living.
       
       
       

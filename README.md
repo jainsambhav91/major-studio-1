@@ -47,4 +47,4 @@ Work for major studio course - Tuesdays and Thursdays
       This dataset from the World Development Indicators provides a list of unemployment rates for all countires for the past 5 year period.
       
 3. Questions [1]
-    - When it comes to the relationship between 
+    - When it comes to the linkages between resource-dependence and institutional quality, both arguments are cited in the report - one suggesting that resource abundant countries tend to have poor governance and the other suggesting that only because of poor governance countires are pushed towards being more resource-dependent. Which of the two arguments does the report support? 

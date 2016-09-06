@@ -39,7 +39,7 @@ Work for major studio course - Tuesdays and Thursdays
       This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time.
       
     - [Tax Revenue as percentage of GDP - Table 11] (http://hdr.undp.org/sites/default/files/hdr_2015_statistical_annex.pdf)  
-      
+      Countries that are more dependent on natural resources may tend to have a lower tax revenue as a percentage of GDP since the economic power and control will be in the hands of a few. To test this hypothesis I would like to compare the resource dependence of countries with the tax collection percentage.
 
     - [Transparency International Corruption Perception Index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
       With the Political Rights Score, I would also like to see if the corruption measures of the resource-dependent nations are worse that those of less resource-dependent nations.  
@@ -90,8 +90,47 @@ Work for major studio course - Tuesdays and Thursdays
     - [Human Development Index - UNDP Human Development Report Table 1] (http://hdr.undp.org/en/composite/HDI):  
       A composite index measuring average achievement in three basic dimensions of human development—a long and healthy life, knowledge and a decent standard of living.
       
-      
-      
-3. Questions [2]
-    - 
 
+---
+
+1. Selected Data Source [3]
+    -  **Education**  
+
+       
+       *Data source:*
+       
+       [Net Enrollment Rate by Level of Education - UNESCO Institute for Statistics] (http://data.uis.unesco.org/?queryid=142):  
+       This dataset shows the net enrollment broken down by gender and level of education for all countries and territories.    
+       
+       
+       *References:*
+       
+       [Enrollment Rates in Africa, World Development Indicators Data] (http://data.worldbank.org/topic/education):  
+       This data shows gross enrollment ratio in different parts of the world broken down by level of education. 
+       
+       [Trends in International MAthematics and Science Study] (https://nces.ed.gov/timss/results11_math11.asp):  
+       This data set gives an idea about how effectively children are learning in school. According to the TIMMS methodology, four points in the overall subject scales are identi ed as international benchmarks: 400 is the low international benchmark, 475 is the intermediate international benchmark, 550 is the high international benchmark, and 625 is the advanced international benchmark.
+       
+       [Percent of school children not learning effectively while in school] (https://www.brookings.edu/wp-content/uploads/2012/09/africa_learning_barometer_technical_appendix.pdf):  
+       This is another data set that looks at how effectively the children enrolled in schools are learning.
+       
+
+
+2. Supplemental Sources [3]
+
+
+    - [Pupil Teacher Ratio - UNDP Human Development Report Table 10] (http://hdr.undp.org/sites/default/files/hdr_2015_statistical_annex.pdf):  
+      A possible reason for low student enrollment in Africa could also be a lack of schools and a unfavourable pupil teacher ratio. To explore this possibility, I would like to compare the student enrollment rates in these nations along with the student pupil ratio. The student pupil ratio is basically the  Average number of pupils per teacher in a given school year.  
+      
+
+    - [UNU WIDER World Income Inequality Database] (https://www.wider.unu.edu/sites/default/files/WIID/WIID_ver3_sept15_0.xls)  
+      This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time. With the idea that a weak education system will also lead to an economic inequality in the country, I would like to see how the student enrollment in schools compares with the Gini coefficients across African nations.
+        
+        
+    - [World Development Indicators - Contribution of natural resources to gross domestic product] (http://wdi.worldbank.org/table/3.14):   
+      A poor level of education in a country could also lead to the country being more dependent on natural resources. With this assumption, I would like to compare the quality of education/enrollment in schools with the dependence of countries on natural resources.  
+      
+      
+3. Questions [3]
+    - The study provides many evidences of lack of quality education in SSA countries, which is a major cause of inequality in these nations. Can this not be related to poor governanace as well?
+    - Along with gender, education, demographics, resource-dependenace, were there any other factors that were studied to understand the reasons for inequality. Were they significant?

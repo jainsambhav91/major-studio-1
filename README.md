@@ -35,15 +35,16 @@ Work for major studio course - Tuesdays and Thursdays
 
 
     - [UNU WIDER World Income Inequality Database] (https://www.wider.unu.edu/sites/default/files/WIID/WIID_ver3_sept15_0.xls)  
-      Building on the idea that institutional quality plays an important role in determining the inequality conditions of a country, I would like to see how the Gini index of the SSA nations compares with their political rights score and their dependence on natural resources, the hypothesis being that nations with high resource dependence may have poor governanace, and in turn are deal with higher inequality.  
+      Building on the idea that institutional quality plays an important role in determining the inequality conditions of a country, I would like to see how the Gini index of the SSA nations compares with their political rights score and their dependence on natural resources, the hypothesis being that nations with high resource dependence may have poor governanace, and in turn are dealing with higher economic inequality.  
       This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time.
 
-
-    - [Transparency international Corruption perception index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
+    - [Transparency International Corruption Perception Index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
       With the Political Rights Score, I would also like to see if the corruption measures of the resource-dependent nations are worse that those of less resource-dependent nations.  
       The Corruption Perceptions Index ranks countries and territories based on how corrupt their public sector is perceived to be. It is a combination of polls – drawing on corruption-related data collected by a variety of reputable institutions. 
 
-    - 
+    - [World Development Indicators - Unemployment Data] (http://databank.worldbank.org/data/reports.aspx?source=2&series=SL.UEM.1524.ZS&country=)  
+      Since extractive industries are more capital intensive and limit employment creation, I would like to see how the unemployment rates for the resource-deoendent nations fare as compared to other nations in African region.  
+      This dataset from the World Development Indicators provides a list of unemployment rates for all countires for the past 5 year period.
       
-3. Questions
-    - [add here]
+3. Questions [1]
+    - When it comes to the relationship between 

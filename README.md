@@ -37,6 +37,9 @@ Work for major studio course - Tuesdays and Thursdays
     - [UNU WIDER World Income Inequality Database] (https://www.wider.unu.edu/sites/default/files/WIID/WIID_ver3_sept15_0.xls)  
       Building on the idea that institutional quality plays an important role in determining the inequality conditions of a country, I would like to see how the Gini index of the SSA nations compares with their political rights score and their dependence on natural resources, the hypothesis being that nations with high resource dependence may have poor governanace, and in turn are dealing with higher economic inequality.  
       This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time.
+      
+    - [Tax Revenue as percentage of GDP - Table 11] (http://hdr.undp.org/sites/default/files/hdr_2015_statistical_annex.pdf)  
+      
 
     - [Transparency International Corruption Perception Index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
       With the Political Rights Score, I would also like to see if the corruption measures of the resource-dependent nations are worse that those of less resource-dependent nations.  
@@ -53,44 +56,40 @@ Work for major studio course - Tuesdays and Thursdays
 ---
 
 1. Selected Data Source [2]
-    -  **test**  
+    -  **Gender Dimensions of Inequality**  
 
        
-       *Data sources:*
+       *Data source:*
        
-       [] ():  
-       
-            
-       [] ():  
+       [The Gender Inequality Index, UNDP, Human Development Report, 2014] (http://hdr.undp.org/en/composite/GII):  
+       This data from the Human Development Report, 2014, shows the Gender Inequality Index in 2014 for all countries. The United Nations’ Gender Inequality Index is a composite measure that reflects inequality in achievement between men and women in three dimensions: reproductive health, empowerment and the labour market, where the lower the score, the closer the gender parity.  
        
        
        *References:*
        
-       [] ():  
+       [Gender Equity in Junior and Senior Secondary Education in Sub-Saharan Africa] (http://www.ungei.org/resources/files/gender_equity_junior_senior.pdf):  
+       This thematic study is about gender equity in junior and senior secondary education in Sub-Saharan Africa. It consists of case studies of Ghana, Malawi and Uganda, as well as, a review of studies undertaken over the past ten years on education in Africa with partic- ular attention to girls’ and secondary education.
        
+       [Gender At Work - A companion to the World Development Report on jobs] (http://www.worldbank.org/content/dam/Worldbank/document/Gender/GenderAtWork_web.pdf):  
+       A study that tries to explain how gender equality in the world of work contributes to development.
        
-       [Jensen, N. and L. Wanchekon (2004). Resource Wealth and Political Regimes in Africa, Comparative Political Studies, 37(7), 816-841.] (http://cps.sagepub.com/content/37/7/816.abstract):  
-       Findings of this study on Africa show that natural resource dependence can have a serious negative impact on both democratic transition and democratic consolidation.
-       
-       [Brunnschweiler, C. N. and E. H. Bulte (2006). Reverse Causality and the Resource Curse : Paradoxes and Red Herrings. Mimeo: Tilburg] (https://www1.ethz.ch/cer/research/wp_06_61.pdf):  
-       This study critically evaluates the basis for the so-called resource curse to find that causality runs from weak institutions to resource-dependence since such countries are unlikely to develop non-primary production sectors.
+       [The Economist - Gender Equality: Making Room for Girls] (http://www.economist.com/blogs/freeexchange/2013/11/gender-inequality):  
+       This article looks at how we can reduce the gap between the number of girls and boys being educated in poor countries.
        
 
 
 2. Supplemental Sources [2]
 
 
-    - [UNU WIDER World Income Inequality Database] (https://www.wider.unu.edu/sites/default/files/WIID/WIID_ver3_sept15_0.xls)  
-      Building on the idea that institutional quality plays an important role in determining the inequality conditions of a country, I would like to see how the Gini index of the SSA nations compares with their political rights score and their dependence on natural resources, the hypothesis being that nations with high resource dependence may have poor governanace, and in turn are dealing with higher economic inequality.  
-      This is the UNU WIDER dataset that summarizes the Gini Index for all countries across time.
-
-    - [Transparency International Corruption Perception Index] (http://files.transparency.org/content/download/1857/12438/file/CPI2014_DataBundle.zip)  
-      With the Political Rights Score, I would also like to see if the corruption measures of the resource-dependent nations are worse that those of less resource-dependent nations.  
-      The Corruption Perceptions Index ranks countries and territories based on how corrupt their public sector is perceived to be. It is a combination of polls – drawing on corruption-related data collected by a variety of reputable institutions. 
+    - [Gross National Income - UNDP Human Development Report] (http://hdr.undp.org/en/composite/HDI):  
+      This data captures the Gross National Incomes of countries and territories for the year 2014. The hypothesis behind choosing this data is that a higher level of gender inequality in a nation may lead to a lower gross national income, indicating a higher level of poverty.
 
     - [World Development Indicators - Unemployment Data] (http://databank.worldbank.org/data/reports.aspx?source=2&series=SL.UEM.1524.ZS&country=)  
-      Since extractive industries are more capital intensive and limit employment creation, I would like to see how the unemployment rates for the resource-deoendent nations fare as compared to other nations in African region.  
-      This dataset from the World Development Indicators provides a list of unemployment rates for all countires for the past 5 year period.
+       
+
+    - [] ()  
+      
+      
       
 3. Questions [2]
     - 

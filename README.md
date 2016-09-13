@@ -4,19 +4,21 @@ Work for major studio course - Tuesdays and Thursdays
 ## Quantitative Data
 
 ## Data Review
-
-
+  
+  
+    
 ### Refined questions for UNDP: Selected Data Source - Enrollment Rate by Level of Education
 
 **Questions**
 
 1. The report provides many evidences of the poor post-primary education enrollment rates in Africa. It also discretely emphasizes on the high resource-dependenace of the SSA countries being related to the high inequality in the region. Could we then conclude that a poor post-primary education enrollment is a result of a lack of high-productivity, skilled labour market in Africa?
 
-2. What findings or ideas triggered the analysis of the education sector in Africa by breaking it down into different levels of education enrollment.
+2. Can we compare what students, after dropping out of primary school, end up doing to understand the trigger behind the high drop-offs?
 
-3. Along with gender, education, demographics, resource-dependenace, were there any other factors that were studied to understand the reasons for inequality. Were they significant?
+3. What findings or ideas triggered the analysis of the education sector in Africa by breaking it down into different levels of education enrollment.
 
-4. 
+4. Along with gender, education, demographics, resource-dependenace, were there any other factors that were studied to understand the reasons for inequality. Were they significant?
+
 
 ---
 

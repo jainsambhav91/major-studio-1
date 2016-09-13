@@ -14,14 +14,11 @@ Work for major studio course - Tuesdays and Thursdays
 
 **Questions**
 
-1. The report provides many evidences of the poor post-primary education enrollment rates in Africa. It also discretely emphasizes on the high resource-dependenace of the SSA countries being related to the high inequality in the region. Could we then compare the enrollment rates with resource-dependance to examine whether a poor post-primary education enrollment is a result of a lack of high-productivity, skilled labour market in Africa?
+1. The report provides many evidences of the poor post-primary education enrollment rates in Africa. It also discretely emphasizes on the high resource-dependenace of the SSA countries. Could we then compare the education-enrollment rates with resource-dependance rates to examine whether a poor post-primary education enrollment is a result of a lack of high-productivity, skilled labour market in Africa?
 
-2. Can we compare what students, after dropping out of primary school, end up doing to understand the trigger behind the high drop-offs?
+2. The report provides a comparison of education-enrollment rates between African countries and the rest of the world. Does it make sense to analyse the trend within the continent juxtapose the education-enrollment rates along with the GINI index in these countries? 
 
 3. What findings or ideas triggered the analysis of the education sector in Africa by breaking it down into different levels of education enrollment.
-
-4. Along with gender, education, demographics, resource-dependenace, were there any other factors that were studied to understand the reasons for inequality. Were they significant?
-
 
 ---
 

@@ -7,14 +7,14 @@ Work for major studio course - Tuesdays and Thursdays
   
   
     
-#### Refined questions for UNDP: Selected Data Source 
-[Enrollment Rate by Level of Education] (http://data.uis.unesco.org/?queryid=142)
+#### Refined questions for UNDP:
+ Selected Data Source: [Enrollment Rate by Level of Education] (http://data.uis.unesco.org/?queryid=142)
   
   
 
 **Questions**
 
-1. The report provides many evidences of the poor post-primary education enrollment rates in Africa. It also discretely emphasizes on the high resource-dependenace of the SSA countries being related to the high inequality in the region. Could we then conclude that a poor post-primary education enrollment is a result of a lack of high-productivity, skilled labour market in Africa?
+1. The report provides many evidences of the poor post-primary education enrollment rates in Africa. It also discretely emphasizes on the high resource-dependenace of the SSA countries being related to the high inequality in the region. Could we then compare the enrollment rates with resource-dependance to examine whether a poor post-primary education enrollment is a result of a lack of high-productivity, skilled labour market in Africa?
 
 2. Can we compare what students, after dropping out of primary school, end up doing to understand the trigger behind the high drop-offs?
 

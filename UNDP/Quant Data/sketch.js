@@ -247,7 +247,7 @@ function setup() {
             
             
             textAlign(CENTER);
-            textSize(10);
+            textSize(12);
             fill(200, 230, 0, 30);
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4), (125 + 50), boxHeight/2, boxHeight/2 );
             fill(150);
@@ -271,7 +271,7 @@ function setup() {
             textFont("Geneva");
             textAlign(LEFT);
             textSize(14);
-            text("Colors:", (boxHeight*12 + 16 + 10), (125 + 225));
+            text("Colors:", (boxHeight*12 + 16 + 10), (125 + 225)); //225
             
             fill(0, 230, 200, 30);
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4), (125 + 275), boxHeight/2, boxHeight/2 );
@@ -289,7 +289,7 @@ function setup() {
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4 + boxHeight/2), (125 + 325), boxHeight/2, boxHeight/2 );
 
 
-            textSize(10);
+            textSize(14);
             fill(150);
             text("African Nations", (boxHeight*12 + 16 + 10 + boxHeight/4 + 100), (125 + 275));
             

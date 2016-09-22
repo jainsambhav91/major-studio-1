@@ -248,19 +248,19 @@ function setup() {
             
             textAlign(CENTER);
             textSize(12);
-            fill(200, 230, 0, 30);
+            fill(200, 200, 200, 30);
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4), (125 + 50), boxHeight/2, boxHeight/2 );
             fill(150);
             text("Primary Enrollment Rate", (boxHeight*12 + 16 + 10 + boxHeight/4 + 100), (125 + 50))
             
             
-            fill(200, 230, 0, 70);
+            fill(200, 200, 200, 70);
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4), (125 + 50 + boxHeight/2 + 10), boxHeight/2, boxHeight/2 );
             fill(150);
             text("Secondary Enrollment Rate", (boxHeight*12 + 16 + 10 + boxHeight/4 + 100 + 8), (125 + 100));
     
             
-            fill(200, 230, 0, 120);
+            fill(200, 200, 200, 120);
             ellipse((boxHeight*12 + 16 + 10 + boxHeight/4), (125 + 50 + boxHeight/2*2 + 20), boxHeight/2, boxHeight/2 );
             fill(150);
             text("Tertiary Enrollment Rate", (boxHeight*12 + 16 + 10 + boxHeight/4 + 100), (125 + 150));

@@ -65,9 +65,9 @@ function draw() {
     }
 }
 
-// function mouseDragged(){
-//     textX += mouseX - pmouseX;
-// } 
+function mouseDragged(){
+    textX += mouseX - pmouseX;
+} 
 
 
 

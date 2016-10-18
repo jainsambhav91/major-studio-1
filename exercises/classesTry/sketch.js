@@ -164,18 +164,18 @@ function WordClass(txt, freq, xpos, ypos){
         fill(250);
         textSize(26);
         text("Word Cloud + Word Tree", windowWidth/14, windowHeight/14);
-        fill(150);
+        fill(100)
         textSize(20);
         text("Article: Too Little Access, Not Enough Learning: Africa’s Twin Deficit in Education", windowWidth/14 , windowHeight/14 + 30);
         
-        textSize(15);
+        textSize(18);
         text("This visual provides a look into the most frequently used words in the Brookings article. Click on the individual words to understand the context behind their usage.", windowWidth/14 , windowHeight/3 - 100);
         
         stroke(126);
         line(0, windowHeight/3 - 80, windowWidth, windowHeight/3 - 80)
         pop();
         
-        //fill(180);
+        
         textSize(this.size/(windowHeight/900));
         text(this.value, this.x, this.y);
         
@@ -330,7 +330,7 @@ function displayWordTree(kw){
 } // displayWordTree function ends.
 
 
-fill(190);
+fill(128);
 
 function draw() {
     noStroke();

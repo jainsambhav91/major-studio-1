@@ -168,7 +168,7 @@ function WordClass(txt, freq, xpos, ypos){
         textSize(20);
         text("Article: Too Little Access, Not Enough Learning: Africa’s Twin Deficit in Education", windowWidth/14 , windowHeight/14 + 30);
         
-        textSize(15);
+        textSize(18);
         text("This visual provides a look into the most frequently used words in the Brookings article. Click on the individual words to understand the context behind their usage.", windowWidth/14 , windowHeight/3 - 100);
         
         stroke(126);

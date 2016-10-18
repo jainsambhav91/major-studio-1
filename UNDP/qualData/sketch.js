@@ -176,7 +176,7 @@ function WordClass(txt, freq, xpos, ypos){
         pop();
         
         //fill(180);
-        textSize(this.size/(windowHeight/900));
+        textSize(this.size/(windowHeight/1200));
         text(this.value, this.x, this.y);
         
         fill(120);

@@ -1,7 +1,7 @@
 # major-studio-1
 
 
-> “I am studying the state of education enrollment in the sub-saharan african countries because I want to find out how the enrollement rates at different levels of education correlate with the resource dependance and productivity in order to understand it's impact on the inequality levels in these countries. I am considering using the education enrollments rates and resource dependant rates as my variables. My visualization is based on UNESCO Institute of Statistics and World Development Indicators data."
+> I am studying the state of education enrollment in the sub-saharan african countries because I want to find out how the enrollement rates at different levels of education correlate with the resource dependance and productivity in order to understand it's impact on the inequality levels in these countries. I am considering using the education enrollments rates and resource dependant rates as my variables. My visualization is based on UNESCO Institute of Statistics and World Development Indicators data.
 
 
 ## Quantitative Data

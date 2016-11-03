@@ -5,19 +5,28 @@
     </head>
     <body>
         <script>
-             
+                 
+            d3.tsv("LaborInNonAgricultSector.tsv", function(error, data) {
+            if (error) throw error;
+            console.log(data);
+            // data.forEach(function(d) {
+            //     d.country = parseDate(d.date);
+            //     d.close = +d.close;
+            //     });
+            });
+                 
              
             d3.select('body')
                 .append('svg')
-                .attr('height', 200)
-                .attr('width', 200);
+                .attr('height', 500)
+                .attr('width', 500);
                 
             var svg = d3.select('svg');
             
             svg.append('circle')
                 .attr('r', 25)
-                .attr('cx', 35)
-                .attr('cy', 50);
+                .attr('cx', 200)
+                .attr('cy', 200);
                 
             svg.append('rect')
                 .attr('width', 30)

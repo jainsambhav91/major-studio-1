@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+    <body>
+        <script>
+            var min = 10000000;
+            var max = 0;
+            
+            var svg = d3.select('svg');
+                
+            d3.tsv("LaborInNonAgricultSector.tsv", function(error, data) {
+              if (error) throw error;
+            
+                console.log(data);
+                
+                data.forEach(function(d) {
+                   for(var i=0; i<24; i++) {
+                       var val = Object.keys(d)[i];
+                       if (min > parseFloat(d[val]))
+                            min = parseFloat(d[val]);
+                        if (max < parseFloat(d[val]))
+                            max = parseFloat(d[val]);
+                   } 
+                });
+                
+                console.log('min: ' + min + ' max: ' + max);
+                
+                var mapX = d3.scaleLinear().domain([0, 24]).range([0, 400]);
+                
+                var mapY = d3.scaleLinear().domain([min, max]).range([300, 0]);
+                
+                var r = d3.select('body')
+                    .selectAll('svg')
+                    .data(data)
+                    .enter()
+                    .append('svg')
+                        .attr("width", 400)
+                        .attr("height", 300)
+                        .each(function(d) {
+                            // console.log(d);
+                            
+                            d3.select(this)
+                                .append('rect')
+                                .attr('x', 0)
+                                .attr('y', 0)
+                                .attr('width', 400)
+                                .attr('height', 300)
+                                .attr('fill', 'white')
+                                .attr('stroke', 'black');
+                                
+                            d3.select(this)
+                                .append('text')
+                                .attr('x', 25)
+                                .attr('y', 25)
+                                .text(d['Country Name'])
+                                
+                            for (var i=0; i<24; i++) {
+                                d3.select(this)
+                                .append('circle')
+                                    .attr('cx', mapX(i))
+                                    // .attr('cy', function(){ return d[String(1990+i)]; })
+                                    .attr('cy', function(){ 
+                                        console.log(d[Object.keys(d)[i]])
+                                        return mapY(d[Object.keys(d)[i]]); 
+                                    })
+                                    .attr('r', 5)
+                                .on('mouseover', function() { d3.select(this).style('fill', 'green')})
+                                // .on('mouseover', function() { d3.select(this).append('text').attr('x', 50).attr('y', 50).text("check")});
+                            }
+                        });
+                
+            });
+        </script>
+    </body>
+</html>

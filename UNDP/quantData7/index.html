@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <!--<script src="d3CheckBox.js"></script>-->
+        </head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style type="text/css">
+            
+            
+            #regions {
+               margin-left: 40px;
+               background: white;
+               width: 150px;
+               padding: 5px;
+               font-size: 10px;
+               height: 25px;
+            }
+            
+            body {
+                background-color: black;
+            }
+            
+           div.tooltip {	
+                position: absolute;	
+                /*left: 20px;*/
+                text-align: left;			
+                width: 120px;					
+                height: 80px;					
+                padding: 10px;				
+                font: 12px sans-serif;		
+                background: white;	
+                border: 0px;		
+                border-radius: 2px;
+                box-shadow: 0px 0px 10px #888888;
+                pointer-events: none;			
+                }
+            
+            #option {	
+                position: absolute;	
+                left: 50%;
+                bottom: 40px;
+                padding: 0px;
+                text-align: center;
+                /*width: 50%;*/
+                /*padding: 10px;				*/
+                font: 12px sans-serif;		
+                border: 0px;		
+                /*border-radius: 2px;*/
+                /*box-shadow: 0px 0px 10px #888888;*/
+                /*pointer-events: none;			*/
+                }
+                
+            
+            p {
+                    font-family: 'Montserrat', sans-serif;
+                    color: rgb(51,46,29);
+                    margin-left: 50px;
+                    font-size: 10px;
+                }
+            
+            
+            h2 {
+                    font-family: 'Roboto', sans-serif;
+                    color: rgb(9,166,163);
+                    text-align: center; 
+                    /*margin-left: 50%;*/
+                }
+        </style>
+        <body>
+        
+        <div id="option">
+            <input name="updateButton" 
+                   type="button" 
+                   value="x10" 
+                   onclick="expand()" />
+        </div>    
+        
+        <script>
+        
+            // setting margin
+            var margin = {top: 30, right: 0, bottom: 60, left: 50},
+            width = window.innerWidth - margin.left - margin.right,
+            height = window.innerHeight - 100 - margin.bottom;
+            
+            // Header
+            var header = d3.select("body")
+                            .append('h2')
+                            .text("The African education enrollment funnel");
+            
+            // // First Paragraph
+            // var p1 = d3.select("body")
+            //             .append("p")
+            //             .html("Does the enrollment rate in different levels of education have a direct impact on the economy?" + "<br>"  + "This visualization attempts to understand the state of education enrollment <b> (averaged over 2004-2014) </b><br> across all  African nations and juxtapose those numbers with different economic indicators <b> (2014 values) </b> <br>to establish how the two relate with each other.");
+            
+            // Regions drop down
+            var regions = ["All Regions", "Eastern Africa", "Western Africa", "Middle Africa", "Southern Africa", "Northern Africa"];
+             
+            var sel2 = d3.select("body")
+                        .append("select")
+                        .attr('id', 'regions')
+                        .selectAll("option")
+                        .data(regions)
+                        .enter()
+                        .append("option")
+                        .text(function(d) {return d;})    
+                        
+            var canvas = d3.select("body")
+                            .append("svg")
+                            .attr("width", width)
+                            .attr("height", height);
+            
+            var filtData = [];
+            
+            firstVisual();
+            function firstVisual(){
+            d3.csv("quantData.csv", function(error, data) {
+            if (error) throw error;
+            console.log(data);
+            
+            var funnelGroup2 = canvas.selectAll('.funnelGroup2')
+                                    .data(data)
+                                    .enter()
+                                    .append('g'); 
+            
+                var primary1 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
+                                .attr('cy', 20)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3);
+                var primary2 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
+                                .attr('cy', 20)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3);                
+            
+                var secondary1 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
+                                .attr('cy', height/2)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3); 
+                var secondary2 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
+                                .attr('cy', height/2)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3);                 
+            
+                var tertiary1 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
+                                .attr('cy', height - 40)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3);
+                var tertiary2 = funnelGroup2
+                                .append("circle")
+                                .attr("class", "funnelGroup2")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
+                                .attr('cy', height - 40)
+                                .attr('r', 5)
+                                .attr('fill', 'rgb(0,204,190)')
+                                .attr('fill-opacity', 0.3);                
+                                
+                var primSec1 = funnelGroup2
+                                .append("line")
+                                .attr("class", "funnelGroup2")
+                                .attr("x1", function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20 ; })
+                                .attr("y1", 20)
+                                .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20 ;})
+                                .attr("y2", height/2 )
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "grey");
+                var primSec2 = funnelGroup2
+                                .append("line")
+                                .attr("class", "funnelGroup2")
+                                .attr("x1", function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20; })
+                                .attr("y1", 20)
+                                .attr("x2", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2  + 20;})
+                                .attr("y2", height/2 )
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "grey");
+                                
+                var secTer1 = funnelGroup2
+                                .append("line")
+                                .attr("class", "funnelGroup2")
+                                .attr("x1", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20; })
+                                .attr("y1", height/2)
+                                .attr("x2", function(d, i) {  return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} )
+                                .attr("y2", height - 40)
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "grey");
+                var secTer2 = funnelGroup2
+                                .append("line")
+                                .attr("class", "funnelGroup2")
+                                .attr("x1", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20; })
+                                .attr("y1", height/2)
+                                .attr("x2", function(d, i) {  return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} )
+                                .attr("y2", height - 40)
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "grey");
+                
+                var tooltip =  funnelGroup2 
+                                .on("mouseover", function(d) 
+                                    {
+                                    d3.select(this).selectAll("circle").style("stroke", 'rgb(180, 180, 180)').style("stroke-width", "2.5"); d3.select(this).selectAll("line").style("stroke", "white").style("stroke-width", "2");
+                                    div.transition()		
+                                        .duration(200)		
+                                        .style("opacity", .9);
+                                        
+                                    div.html("<span style='font-size: 15px; text-align: left; text-transform: uppercase'>" + "<b>" + d['country'] + "</b>" + "</span>" + "<br>" + "<span> <br> Primary:   </span>"+ "<span> <b>" + d['enrolPrimary'] + "%" +  "</b> </span>"
+                                                          + "<br>" + " Secondary:  <b>" + d['enrolSecondary'] + "%"
+                                                          + "</b> <br>" + " Tertiary: <b>" + d['enrolTertiary'] + "% </b>")	
+                                        .style("left", (d3.event.pageX - 100) + "px")		
+                                        .style("top", (d3.event.pageY - 130) + "px");
+                                    })
+                                .on("mouseout", function() {
+                                    d3.select(this).selectAll("circle").style("stroke", 'black').style("stroke-width", "0");
+                                    d3.select(this).selectAll("line").style("stroke-width", "0.3").style("stroke-opacity", "0.5").style("stroke", "grey");
+                                    
+                                    div.transition()		
+                                        .duration(500)		
+                                        .style("opacity", 0);	
+                                });
+                                
+            d3.select("#regions").on("change",function(){
+            filtData = [];
+            
+            for(var i = 0; i<data.length; i++){
+                if(regions[this.selectedIndex] == data[i]['subRegion']){
+                 filtData.push(data[i]);   
+                }
+            }
+            console.log(filtData);
+            d3.selectAll("#funnelgrp").remove();
+            changeVisual(filtData);
+            });
+            
+        }); //function(err, data) ends 
+            }
+            
+            var mapX1 = d3.scaleLinear().domain([0, 100]).range([50, width - 50]);
+            var mapX2 = d3.scaleLinear().domain([0, 100]).range([50, width - 50]);   
+            var mapX3 = d3.scaleLinear().domain([0, 100]).range([50, width - 50]);  
+            var c = 0;
+        
+        function expand(){
+            d3.selectAll(".funnelGroup").remove();
+            d3.selectAll(".funnelGroup2").remove();
+
+            mapX3 = d3.scaleLinear().domain([0, 10]).range([50, width - 50]);
+            
+            firstVisual();
+        }
+
+        createAxes();
+        function createAxes(){
+
+// ------------- create axis ONE -------------------------------- 
+            
+            var axis1 = canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", 20)
+                            .attr("x2", width - 40)
+                            .attr("y2", 20)
+                            .attr("stroke-width", 0.5)
+                            .attr("stroke", "rgb(50, 50, 50)");
+                            
+                        canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", 20 - 5)
+                            .attr("x2", 40)
+                            .attr("y2", 20 + 5)
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)");
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", 40)
+                            .attr("y", 20 + 20)
+                            .text("0%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");
+                            
+                            
+                        canvas
+                            .append("line")
+                            .attr("x1", width - 40 )
+                            .attr("y1", 20 - 5)
+                            .attr("x2", width - 40)
+                            .attr("y2", 20 + 5)
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)"); 
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", width - 40)
+                            .attr("y", 20 + 20)
+                            .text("100%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)"); 
+                            
+                         canvas
+                            .append("text")
+                            .attr("x", 40 + 40)
+                            .attr("y", 20 + 20)
+                            .text("Primary enrollment")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");    
+             
+
+// ------------- create axis TWO --------------------------------
+
+            var axis2 = canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", height/2)
+                            .attr("x2", width - 40)
+                            .attr("y2", height/2)
+                            .attr("stroke-width", 0.5)
+                            .attr("stroke", "rgb(50, 50, 50)");                            
+
+                         canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", height/2 - 5)
+                            .attr("x2", 40)
+                            .attr("y2", height/2 + 5)
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)"); 
+            
+                        canvas
+                            .append("line")
+                            .attr("x1", width - 40 )
+                            .attr("y1", height/2 - 5)
+                            .attr("x2", width - 40)
+                            .attr("y2", height/2 + 5)
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)"); 
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", 40)
+                            .attr("y", height/2 + 20)
+                            .text("0%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", width - 40)
+                            .attr("y", height/2 + 20)
+                            .text("100%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");    
+                            
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", 40 + 40)
+                            .attr("y", height/2 + 20)
+                            .text("Secondary enrollment")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");    
+                            
+            
+// ------------- create axis THREE --------------------------------            
+            
+            var axis3 = canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", height - 40)
+                            .attr("x2", width - 40)
+                            .attr("y2", height - 40)
+                            .attr("stroke-width", 0.5)
+                            .attr("stroke", "rgb(50, 50, 50)");
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", 40)
+                            .attr("y", height - 40 + 20 )
+                            .text("0%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", width - 40)
+                            .attr("y", height - 40 + 20)
+                            .text("100%")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");                    
+                            
+                        canvas
+                            .append("line")
+                            .attr("x1", 40 )
+                            .attr("y1", height - 40 - 5)
+                            .attr("x2", 40)
+                            .attr("y2", height - 40 + 5)
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)"); 
+            
+                        canvas
+                            .append("line")
+                            .attr("x1", width - 40 )
+                            .attr("y1", height - 40 - 5 )
+                            .attr("x2", width - 40)
+                            .attr("y2", height - 40 + 5 )
+                            .attr("stroke-width", 1)
+                            .attr("stroke", "rgb(50, 50, 50)"); 
+                            
+                        canvas
+                            .append("text")
+                            .attr("x", 40 + 40)
+                            .attr("y", height - 40 + 20 )
+                            .text("Tertiary enrollment")
+                            .attr("font-family", "'Montserrat', sans-serif")
+                            .attr("font-size", "10")
+                            .attr("fill", "rgb(51,46,29)");    
+// ---------------
+
+}
+
+            var div = d3.select("body").append("div")	
+                                    .attr("class", "tooltip")				
+                                    .style("opacity", 0)
+                                    .attr("x", "200");
+            
+            
+            function changeVisual(data){ 
+                
+                d3.selectAll(".funnelGroup").remove();
+            
+                var funnelGroup = canvas.selectAll('.funnelGroup')
+                                    .data(data)
+                                    .enter()
+                                    .append('g'); 
+            
+                var primary1 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
+                                .attr('cy', 20)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3);
+                var primary2 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
+                                .attr('cy', 20)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3);                
+            
+                var secondary1 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
+                                .attr('cy', height/2)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3); 
+                var secondary2 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
+                                .attr('cy', height/2)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3);                 
+            
+                var tertiary1 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
+                                .attr('cy', height - 40)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3);
+                var tertiary2 = funnelGroup
+                                .append("circle")
+                                .attr("class", "funnelGroup")
+                                .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
+                                .attr('cy', height - 40)
+                                .attr('r', 5)
+                                .attr('fill', 'yellow')
+                                .attr('fill-opacity', 0.3);                
+                                
+                var primSec1 = funnelGroup
+                                .append("line")
+                                .attr("class", "funnelGroup")
+                                .attr("x1", function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20; })
+                                .attr("y1", 20)
+                                .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
+                                .attr("y2", height/2 )
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "yellow");
+                var primSec2 = funnelGroup
+                                .append("line")
+                                .attr("class", "funnelGroup")
+                                .attr("x1", function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20; })
+                                .attr("y1", 20)
+                                .attr("x2", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
+                                .attr("y2", height/2 )
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "yellow");
+                                
+                var secTer1 = funnelGroup
+                                .append("line")
+                                .attr("class", "funnelGroup")
+                                .attr("x1", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20; })
+                                .attr("y1", height/2)
+                                .attr("x2", function(d, i) {  return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} )
+                                .attr("y2", height - 40)
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "yellow");
+                var secTer2 = funnelGroup
+                                .append("line")
+                                .attr("class", "funnelGroup")
+                                .attr("x1", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20; })
+                                .attr("y1", height/2)
+                                .attr("x2", function(d, i) {  return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} )
+                                .attr("y2", height - 40)
+                                .attr("stroke-width", 0.3)
+                                .attr("stroke-opacity", 0.5)
+                                .attr("stroke", "yellow");  
+                var tooltip =  funnelGroup 
+                                .on("mouseover", function(d) 
+                                    {
+                                    d3.select(this).selectAll("circle").style("stroke", 'rgb(180, 180, 180)').style("stroke-width", "2.5"); d3.select(this).selectAll("line").style("stroke-width", "2");
+                                    div.transition()		
+                                        .duration(200)		
+                                        .style("opacity", .9);
+                                        
+                                    div.html("<span style='font-size: 15px; text-align: left; text-transform: uppercase'>" + "<b>" + d['country'] + "</b>" + "</span>" + "<br>" + "<span> <br> Primary:   </span>"+ "<span> <b>" + d['enrolPrimary'] + "%" +  "</b> </span>"
+                                                          + "<br>" + " Secondary:  <b>" + d['enrolSecondary'] + "%"
+                                                          + "</b> <br>" + " Tertiary: <b>" + d['enrolTertiary'] + "% </b>")	
+                                        .style("left", (d3.event.pageX + 60) + "px")		
+                                        .style("top", (d3.event.pageY - 100) + "px");
+                                    })
+                                .on("mouseout", function() {
+                                    d3.select(this).selectAll("circle").style("stroke", 'black').style("stroke-width", "0");
+                                    d3.select(this).selectAll("line").style("stroke-width", "0.3").style("stroke-opacity", "0.5").style("stroke", "yellow");
+                                    
+                                    div.transition()		
+                                        .duration(500)		
+                                        .style("opacity", 0);	
+                                });
+                                    
+                
+            }
+        </script>
+    </body>
+</html>

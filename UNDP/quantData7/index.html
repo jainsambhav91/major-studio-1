@@ -76,7 +76,7 @@
                 }
             
             
-            h2 {
+            h1 {
                     font-family: 'Roboto', sans-serif;
                     font-weight:100;
                     color: rgb(9,166,163);
@@ -86,7 +86,7 @@
         </style>
         <body>
             
-        <h2>The African Education Enrollment Funnel</h2>    
+        <h1>The African Education Enrollment Funnel</h1>    
         
         <div id="start">
             <input name="start" 
@@ -167,7 +167,16 @@
                                 .attr("x2", width - 40)
                                 .attr("y2", 20 + 5)
                                 .attr("stroke-width", 1)
-                                .attr("stroke", "white"); 
+                                .attr("stroke", "white");
+                            
+                            canvas
+                                .append("line")
+                                .attr("x1", width/2 )
+                                .attr("y1", 20 - 5)
+                                .attr("x2", width/2)
+                                .attr("y2", 20 + 5)
+                                .attr("stroke-width", 1)
+                                .attr("stroke", "white");    
                                 
                             canvas
                                 .append("text")
@@ -193,7 +202,7 @@
                                 
                              canvas
                                 .append("text")
-                                .attr("x", window.innerWidth/2)
+                                .attr("x", width/2)
                                 .attr("y", 20 + 20)
                                 .attr("text-anchor", "middle")
                                 .text("primary enrollment")
@@ -231,6 +240,15 @@
                                 .attr("y2", height/2 + 5)
                                 .attr("stroke-width", 1)
                                 .attr("stroke", "white"); 
+                            
+                            canvas
+                                .append("line")
+                                .attr("x1", width/2 )
+                                .attr("y1", height/2 - 5)
+                                .attr("x2", width/2)
+                                .attr("y2", height/2 + 5)
+                                .attr("stroke-width", 1)
+                                .attr("stroke", "white"); 
                                 
                             canvas
                                 .append("text")
@@ -257,7 +275,7 @@
                                 
                             canvas
                                 .append("text")
-                                .attr("x", window.innerWidth/2)
+                                .attr("x", width/2)
                                 .attr("y", height/2 + 20)
                                 .attr("text-anchor", "middle")
                                 .text("secondary enrollment")
@@ -317,10 +335,19 @@
                                 .attr("y2", height - 40 + 5 )
                                 .attr("stroke-width", 1)
                                 .attr("stroke", "white"); 
+                            
+                            canvas
+                                .append("line")
+                                .attr("x1", width/2 )
+                                .attr("y1", height - 40 - 5)
+                                .attr("x2", width/2)
+                                .attr("y2", height - 40 + 5)
+                                .attr("stroke-width", 1)
+                                .attr("stroke", "white");
                                 
                             canvas
                                 .append("text")
-                                .attr("x", window.innerWidth/2)
+                                .attr("x", width/2)
                                 .attr("y", height - 40 + 20 )
                                 .text("tertiary enrollment")
                                 .attr("text-anchor", "middle")

@@ -764,8 +764,8 @@
                                 .attr("y1", 20)
                                 .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                 .attr("y2", height/2 )
-                                .attr("stroke-width", 0.3)
-                                .attr("stroke-opacity", 0.7)
+                                .attr("stroke-width", 0.5)
+                                .attr("stroke-opacity", 0.6)
                                 .attr("stroke", "yellow");
                 var primSec2 = funnelGroup
                                 .append("line")
@@ -774,8 +774,8 @@
                                 .attr("y1", 20)
                                 .attr("x2", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                 .attr("y2", height/2 )
-                                .attr("stroke-width", 0.3)
-                                .attr("stroke-opacity", 0.7)
+                                .attr("stroke-width", 0.5)
+                                .attr("stroke-opacity", 0.6)
                                 .attr("stroke", "yellow");
                                 
                 var secTer1 = funnelGroup
@@ -785,8 +785,8 @@
                                 .attr("y1", height/2)
                                 .attr("x2", function(d, i) {  return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} )
                                 .attr("y2", height - 40)
-                                .attr("stroke-width", 0.3)
-                                .attr("stroke-opacity", 0.7)
+                                .attr("stroke-width", 0.5)
+                                .attr("stroke-opacity", 0.6)
                                 .attr("stroke", "yellow");
                 var secTer2 = funnelGroup
                                 .append("line")
@@ -795,14 +795,14 @@
                                 .attr("y1", height/2)
                                 .attr("x2", function(d, i) {  return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} )
                                 .attr("y2", height - 40)
-                                .attr("stroke-width", 0.3)
-                                .attr("stroke-opacity", 0.7)
+                                .attr("stroke-width", 0.5)
+                                .attr("stroke-opacity", 0.6)
                                 .attr("stroke", "yellow");  
                 var tooltip =  funnelGroup 
                                 .on("mouseover", function(d) 
                                     {
                                     d3.select(this).selectAll("circle").style("stroke", 'rgb(180, 180, 180)').style("stroke-width", "2.5"); // d3.select(this).selectAll("#funnelLine").style("stroke-width", "2");
-                                    d3.select(this).selectAll("line").style("stroke-width", "2").style("stroke-opacity", "1"); 
+                                    d3.select(this).selectAll("line").style("stroke-width", "2.5").style("stroke-opacity", "1"); 
                                     d3.select(this).selectAll("rect").style("fill-opacity", "1"); 
                                     div.transition()		
                                         .duration(200)		

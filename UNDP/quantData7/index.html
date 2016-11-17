@@ -177,7 +177,7 @@
                                 .attr("text-anchor", "middle")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey");
                                 
                             canvas
@@ -188,7 +188,7 @@
                                 .attr("text-anchor", "middle")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey"); 
                                 
                              canvas
@@ -199,7 +199,7 @@
                                 .text("primary enrollment")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey");    
                  
     
@@ -221,7 +221,7 @@
                                 .attr("x2", 40)
                                 .attr("y2", height/2 + 5)
                                 .attr("stroke-width", 1)
-                                .attr("stroke", "rgb(50, 50, 50)"); 
+                                .attr("stroke", "white"); 
                 
                             canvas
                                 .append("line")
@@ -230,7 +230,7 @@
                                 .attr("x2", width - 40)
                                 .attr("y2", height/2 + 5)
                                 .attr("stroke-width", 1)
-                                .attr("stroke", "rgb(50, 50, 50)"); 
+                                .attr("stroke", "white"); 
                                 
                             canvas
                                 .append("text")
@@ -240,7 +240,7 @@
                                 .attr("text-anchor", "middle")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey");
                                 
                             canvas
@@ -251,7 +251,7 @@
                                 .attr("text-anchor", "middle")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey");    
                                 
                                 
@@ -263,7 +263,7 @@
                                 .text("secondary enrollment")
                                 .attr("font-family", "'Roboto', sans-serif")
                                 .attr("font-weight", "300")
-                                .attr("font-size", "10")
+                                .attr("font-size", "12")
                                 .attr("fill", "grey");    
                                 
                 
@@ -282,19 +282,23 @@
                                 .append("text")
                                 .attr("x", 40)
                                 .attr("y", height - 40 + 20 )
-                                .text("0%")
-                                .attr("font-family", "'Montserrat', sans-serif")
-                                .attr("font-size", "10")
-                                .attr("fill", "rgb(51,46,29)");
+                                .text("50%")
+                                .attr("text-anchor", "middle")
+                                .attr("font-family", "'Roboto', sans-serif")
+                                .attr("font-weight", "300")
+                                .attr("font-size", "12")
+                                .attr("fill", "grey");
                                 
                             canvas
                                 .append("text")
                                 .attr("x", width - 40)
                                 .attr("y", height - 40 + 20)
-                                .text("100%")
-                                .attr("font-family", "'Montserrat', sans-serif")
-                                .attr("font-size", "10")
-                                .attr("fill", "rgb(51,46,29)");                    
+                                .text("50%")
+                                .attr("text-anchor", "middle")
+                                .attr("font-family", "'Roboto', sans-serif")
+                                .attr("font-weight", "300")
+                                .attr("font-size", "12")
+                                .attr("fill", "grey");                    
                                 
                             canvas
                                 .append("line")
@@ -303,7 +307,7 @@
                                 .attr("x2", 40)
                                 .attr("y2", height - 40 + 5)
                                 .attr("stroke-width", 1)
-                                .attr("stroke", "rgb(50, 50, 50)"); 
+                                .attr("stroke", "white"); 
                 
                             canvas
                                 .append("line")
@@ -312,16 +316,18 @@
                                 .attr("x2", width - 40)
                                 .attr("y2", height - 40 + 5 )
                                 .attr("stroke-width", 1)
-                                .attr("stroke", "rgb(50, 50, 50)"); 
+                                .attr("stroke", "white"); 
                                 
                             canvas
                                 .append("text")
-                                .attr("x", 40 + 40)
+                                .attr("x", window.innerWidth/2)
                                 .attr("y", height - 40 + 20 )
-                                .text("Tertiary enrollment")
-                                .attr("font-family", "'Montserrat', sans-serif")
-                                .attr("font-size", "10")
-                                .attr("fill", "rgb(51,46,29)");    
+                                .text("tertiary enrollment")
+                                .attr("text-anchor", "middle")
+                                .attr("font-family", "'Roboto', sans-serif")
+                                .attr("font-weight", "300")
+                                .attr("font-size", "12")
+                                .attr("fill", "grey");    
     // ---------------
     
     }
@@ -344,7 +350,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                     .attr('cy', 20)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3);
                     var primary2 = funnelGroup2
@@ -352,7 +358,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                     .attr('cy', 20)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3);                
                 
@@ -361,7 +367,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                     .attr('cy', height/2)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3); 
                     var secondary2 = funnelGroup2
@@ -369,7 +375,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                     .attr('cy', height/2)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3);                 
                 
@@ -378,7 +384,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
                                     .attr('cy', height - 40)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3);
                     var tertiary2 = funnelGroup2
@@ -386,7 +392,7 @@
                                     .attr("class", "funnelGroup2")
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
                                     .attr('cy', height - 40)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3);                
                                     
@@ -512,7 +518,7 @@
                                     .attr("class", "funnelGroup3")
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                     .attr('cy', 20)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
@@ -531,7 +537,7 @@
                                     .attr("class", "funnelGroup3")
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                     .attr('cy', 20)
-                                    .attr('r', 5)
+                                    .attr('r', 6)
                                     .attr('fill', 'rgb(0,204,190)')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
@@ -567,7 +573,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                 .attr('cy', 20)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3);
                 var primary2 = funnelGroup
@@ -575,7 +581,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                 .attr('cy', 20)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3);                
             
@@ -584,7 +590,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                 .attr('cy', height/2)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3); 
                 var secondary2 = funnelGroup
@@ -592,7 +598,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                 .attr('cy', height/2)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3);                 
             
@@ -601,7 +607,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
                                 .attr('cy', height - 40)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3);
                 var tertiary2 = funnelGroup
@@ -609,7 +615,7 @@
                                 .attr("class", "funnelGroup")
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
                                 .attr('cy', height - 40)
-                                .attr('r', 5)
+                                .attr('r', 6)
                                 .attr('fill', 'yellow')
                                 .attr('fill-opacity', 0.3);                
                                 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+    <body>
+        <h2>Africa: eduaction and inequality</h2>
+        <p>Over the past decade, the primary school enrolment rate has <br>significantly improved in sub-Saharan Africa, now averaging over 80%.</p>
+        <p>However, the poor secondary and tertiary enrolment rates are considerably restricting <br>the region from moving it's eceonomy toward higher-productivity sectors.</p>
+        <p>another line describing the visualization</p>
+        <!--<select id="mySelect" onchange="myFunction()">-->
+        <!--      <option value="Eastern Africa">Eastern Africa-->
+        <!--      <option value="Middle Africa">Middle Africa-->
+        <!--      <option value="Western Africa">Western Africa-->
+        <!--      <option value="Southern Africa">Southern Africa-->
+        <!--      <option value="Northern Africa">Northern Africa-->
+        <!--      <option value="All countries">All countries-->
+        <!--    </select>-->
+        
+        <script>
+        
+            // min and max values for axes
+              var 
+              minGini = 29.8,
+              maxGini = 74.3,
+              minPri = 20.52,
+              maxPri = 99.14,
+              minSec = 2.94,
+              maxSec = 81.10,
+              minTer = 0.24,
+              maxTer = 26.87;
+              
+            // margins   
+              var 
+              svgMarginTop = 20,
+              svgMarginLeft = 20;
+              
+            // axes scales
+              var mapYgini = d3.scaleLinear().domain([minGini, maxGini]).range([380, 20]);
+              var mapYpri = d3.scaleLinear().domain([minPri, maxPri]).range([380, 20]);
+              var mapYsec = d3.scaleLinear().domain([minSec, maxSec]).range([380, 20]);
+              var mapYter = d3.scaleLinear().domain([minTer, maxTer]).range([380, 20]);
+                    
+            // select and option - African regions
+            var div = d3.select('body').append('div')     
+            var regions = ["All countries", "Eastern Africa", "Western Africa", "Middle Africa", "Southern Africa", "Northern Africa"];
+            
+            var sel2 = div.append("select")
+                        .attr('id', 'regions')
+                        .selectAll("option")
+                        .data(regions)
+                        .enter()
+                        .append("option")
+                        .text(function(d) {return d;});
+            
+                        
+            d3.csv("quantdata-change.csv", function(error, data) {
+            if (error) throw error;
+              
+            var r = d3.select('body')
+                    .selectAll('svg')
+                    .data(data)
+                    .enter()
+                    .append('svg')
+                        .attr("width", 400)
+                        .attr("height", 400)
+                        .each(function(d) {
+                            // console.log(d);
+                            
+                            d3.select(this)
+                                .append('rect')
+                                .attr('x', 0)
+                                .attr('y', 0)
+                                .attr('width', 400)
+                                .attr('height', 400)
+                                .attr('fill', 'white')
+                                .attr('stroke', 'black'); 
+                                
+                            d3.select(this)
+                                .append('rect')
+                                .attr('x', svgMarginLeft)
+                                .attr('y', svgMarginTop)
+                                .attr('width', 360)
+                                .attr('height', 360)
+                                .attr('fill', 'white')
+                                .attr('stroke', 'black');    
+                                
+                            d3.select(this)
+                                .append('text')
+                                .attr('x', 20)
+                                .attr('y', 20)
+                                .text(d['Country'])
+                                
+                            
+                            d3.select(this)
+                                .append('circle')
+                                .attr('cx', svgMarginLeft)
+                                .attr('cy', parseFloat(mapYgini(d['gini9195'])))
+                                .attr('r', 5);
+                                
+                            d3.select(this)
+                                .append('circle')
+                                .attr('cx', svgMarginLeft + 360/3)
+                                .attr('cy', parseFloat(mapYgini(d['gini9600'])))
+                                .attr('r', 5);
+                                
+                            d3.select(this)
+                                .append('circle')
+                                .attr('cx', svgMarginLeft + 2*(360/3))
+                                .attr('cy', parseFloat(mapYgini(d['gini0105'])))
+                                .attr('r', 5);    
+                            
+                            d3.select(this)
+                                .append('circle')
+                                .attr('cx', svgMarginLeft + 360)
+                                .attr('cy', parseFloat(mapYgini(d['gini0610'])))
+                                .attr('r', 5);
+                                
+                            // d3.axisLeft(scale) 
+                                            
+                            var yAxis = d3.axisLeft(mapYgini);
+                            
+                            d3.select(this)
+                            .append("g")
+                            .attr("transform", "translate(20,0)")
+                            .call(yAxis)
+                            .append("text")
+                            .attr("transform", "rotate(-90)")
+                            .attr("y", 6)
+                            .attr("dy", ".71em")
+                            .style("text-anchor", "end")
+                            .text("GINI");
+                        });
+                
+            });
+        </script>
+    </body>
+</html>

@@ -111,6 +111,7 @@
         <p>Over the past decade, the primary school enrolment rate has <br>significantly improved in sub-Saharan Africa, now averaging over 80%.</p>
         <p>However, the poor secondary and tertiary enrolment rates are considerably restricting <br>the region from moving it's eceonomy toward higher-productivity sectors.</p>
         <p>This visualization is an attempt to establish this gap in the different levels of education <br> to further explore it's implications on the economies of these countries. <br>The enrolment rates displayed below are averaged over the ten year peiod, from 2004 to 2014.</p>
+        
         <div id="start">
             <input name="start" 
                    type="button" 
@@ -162,7 +163,21 @@
             
             createAxes();
 
-            
+            //Container for the gradients
+                var defs = canvas.append("defs");
+                
+                //Filter for the outside glow
+                var filter = defs.append("filter")
+                	.attr("id","glow");
+                filter.append("feGaussianBlur")
+                	.attr("stdDeviation","6")
+                	.attr("result","coloredBlur");
+                var feMerge = filter.append("feMerge");
+                feMerge.append("feMergeNode")
+                	.attr("in","coloredBlur");
+                feMerge.append("feMergeNode")
+                	.attr("in","SourceGraphic");
+
             
             var filtData = [];
             function firstVisual(){
@@ -181,7 +196,7 @@
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                     .attr('cy', 20)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3);
                     var primary2 = funnelGroup2
                                     .append("circle")
@@ -189,7 +204,7 @@
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                     .attr('cy', 20)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3);    
                                     
                     var check = funnelGroup2
@@ -200,7 +215,8 @@
                                     .attr('width', function(d, i) { return (width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20 - (width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20));})
                                     .attr('height', 2)
                                     .style("fill", "white")
-                                    .attr('fill-opacity', 0);                
+                                    .attr('fill-opacity', 0)
+                                    .style("filter", "url(#glow)");                
                 
                     var secondary1 = funnelGroup2
                                     .append("circle")
@@ -208,7 +224,7 @@
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                     .attr('cy', height/2)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3); 
                     var secondary2 = funnelGroup2
                                     .append("circle")
@@ -216,7 +232,7 @@
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                     .attr('cy', height/2)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3);                 
                 
                     var tertiary1 = funnelGroup2
@@ -225,7 +241,7 @@
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
                                     .attr('cy', height - 40)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3);
                     var tertiary2 = funnelGroup2
                                     .append("circle")
@@ -233,7 +249,7 @@
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
                                     .attr('cy', height - 40)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', '#27bde2')
                                     .attr('fill-opacity', 0.3);                
                                     
                     var primSec1 = funnelGroup2
@@ -243,9 +259,11 @@
                                     .attr("y1", 20)
                                     .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20 ;})
                                     .attr("y2", height/2 )
-                                    .attr("stroke-width", 0.3)
-                                    .attr("stroke-opacity", 0.7)
-                                    .attr("stroke", "LightGrey");
+                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-opacity", 0.5)
+                                    .attr("stroke", "LightGrey")
+                                    .style("filter", "url(#glow)");
+                                    
                     var primSec2 = funnelGroup2
                                     .append("line")
                                     .attr("class", "funnelGroup2")
@@ -253,9 +271,10 @@
                                     .attr("y1", 20)
                                     .attr("x2", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2  + 20;})
                                     .attr("y2", height/2 )
-                                    .attr("stroke-width", 0.3)
-                                    .attr("stroke-opacity", 0.7)
-                                    .attr("stroke", "LightGrey");
+                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-opacity", 0.5)
+                                    .attr("stroke", "LightGrey")
+                                    .style("filter", "url(#glow)");
                                     
                     var secTer1 = funnelGroup2
                                     .append("line")
@@ -264,9 +283,12 @@
                                     .attr("y1", height/2)
                                     .attr("x2", function(d, i) {  return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} )
                                     .attr("y2", height - 40)
-                                    .attr("stroke-width", 0.3)
-                                    .attr("stroke-opacity", 0.7)
-                                    .attr("stroke", "LightGrey");
+                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-opacity", 0.5)
+                                    .attr("stroke", "LightGrey")
+                                    .style("filter", "url(#glow)");
+                                    
+                                    
                     var secTer2 = funnelGroup2
                                     .append("line")
                                     .attr("class", "funnelGroup2")
@@ -274,9 +296,10 @@
                                     .attr("y1", height/2)
                                     .attr("x2", function(d, i) {  return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} )
                                     .attr("y2", height - 40)
-                                    .attr("stroke-width", 0.3)
-                                    .attr("stroke-opacity", 0.7)
-                                    .attr("stroke", "LightGrey");
+                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-opacity", 0.5)
+                                    .attr("stroke", "LightGrey")
+                                    .style("filter", "url(#glow)");
                     
                     var tooltip =  funnelGroup2 
                                     .on("mouseover", function(d) 
@@ -294,7 +317,7 @@
                                             .style("top", (d3.event.pageY - 130) + "px");
                                         })
                                     .on("mouseout", function() {
-                                        d3.select(this).selectAll("circle").style("stroke", 'black').style("stroke-width", "0");
+                                        d3.select(this).selectAll("circle").style("stroke", 'white').style("stroke-width", "0");
                                         d3.select(this).selectAll("line").style("stroke-width", "0.3").style("stroke-opacity", "0.5").style("stroke", "grey");
                                         d3.select(this).selectAll("rect").style("fill-opacity", "0");
                                         div.transition()		
@@ -574,7 +597,7 @@
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3old(d['enrolTertiary']))/2 - 20;})
                                     .attr('cy', height - 40)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', 'grey')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
                                     .duration(1500)
@@ -588,7 +611,7 @@
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3old(d['enrolTertiary']))/2 + 20;})
                                     .attr('cy', height - 40)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', 'grey')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
                                     .duration(1500)
@@ -635,7 +658,7 @@
                                     .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                     .attr('cy', 20)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', 'grey')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
                                     .delay(500)
@@ -654,7 +677,7 @@
                                     .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                     .attr('cy', 20)
                                     .attr('r', 7)
-                                    .attr('fill', 'rgb(0,204,190)')
+                                    .attr('fill', 'grey')
                                     .attr('fill-opacity', 0.3)
                                     .transition()
                                     .delay(500)
@@ -701,7 +724,7 @@
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20;})
                                 .attr('cy', 20)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3);
                 var primary2 = funnelGroup
                                 .append("circle")
@@ -709,7 +732,7 @@
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20;})
                                 .attr('cy', 20)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3);
                                 
                 var check = funnelGroup
@@ -719,8 +742,9 @@
                                     .attr('y', 19)
                                     .attr('width', function(d, i) { return (width/2 + parseFloat(mapX1(d['enrolPrimary']))/2 - 20 - (width/2 - parseFloat(mapX1(d['enrolPrimary']))/2 + 20));})
                                     .attr('height', 2)
-                                    .style("fill", "yellow")
-                                    .attr('fill-opacity', 0);
+                                    .style("fill", "#fac313")
+                                    .attr('fill-opacity', 0)
+                                    .style("filter", "url(#glow)");
         
             
                 var secondary1 = funnelGroup
@@ -729,7 +753,7 @@
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                 .attr('cy', height/2)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3); 
                 var secondary2 = funnelGroup
                                 .append("circle")
@@ -737,7 +761,7 @@
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                 .attr('cy', height/2)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3);                 
             
                 var tertiary1 = funnelGroup
@@ -746,7 +770,7 @@
                                 .attr('cx', function(d, i) { return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;})
                                 .attr('cy', height - 40)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3);
                 var tertiary2 = funnelGroup
                                 .append("circle")
@@ -754,7 +778,7 @@
                                 .attr('cx', function(d, i) { return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;})
                                 .attr('cy', height - 40)
                                 .attr('r', 7)
-                                .attr('fill', 'yellow')
+                                .attr('fill', '#fac313')
                                 .attr('fill-opacity', 0.3);                
                                 
                 var primSec1 = funnelGroup
@@ -764,9 +788,11 @@
                                 .attr("y1", 20)
                                 .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20;})
                                 .attr("y2", height/2 )
-                                .attr("stroke-width", 0.5)
+                                .attr("stroke-width", 0.25)
                                 .attr("stroke-opacity", 0.6)
-                                .attr("stroke", "yellow");
+                                .attr("stroke", "#fac313")
+                                .style("filter", "url(#glow)");
+                                
                 var primSec2 = funnelGroup
                                 .append("line")
                                 .attr("class", "funnelGroup")
@@ -774,9 +800,10 @@
                                 .attr("y1", 20)
                                 .attr("x2", function(d, i) { return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2 + 20;})
                                 .attr("y2", height/2 )
-                                .attr("stroke-width", 0.5)
+                                .attr("stroke-width", 0.25)
                                 .attr("stroke-opacity", 0.6)
-                                .attr("stroke", "yellow");
+                                .attr("stroke", "#fac313")
+                                .style("filter", "url(#glow)");
                                 
                 var secTer1 = funnelGroup
                                 .append("line")
@@ -785,9 +812,11 @@
                                 .attr("y1", height/2)
                                 .attr("x2", function(d, i) {  return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} )
                                 .attr("y2", height - 40)
-                                .attr("stroke-width", 0.5)
+                                .attr("stroke-width", 0.25)
                                 .attr("stroke-opacity", 0.6)
-                                .attr("stroke", "yellow");
+                                .attr("stroke", "#fac313")
+                                .style("filter", "url(#glow)");
+                                
                 var secTer2 = funnelGroup
                                 .append("line")
                                 .attr("class", "funnelGroup")
@@ -795,9 +824,11 @@
                                 .attr("y1", height/2)
                                 .attr("x2", function(d, i) {  return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} )
                                 .attr("y2", height - 40)
-                                .attr("stroke-width", 0.5)
+                                .attr("stroke-width", 0.25)
                                 .attr("stroke-opacity", 0.6)
-                                .attr("stroke", "yellow");  
+                                .attr("stroke", "#fac313")
+                                .style("filter", "url(#glow)");
+                                
                 var tooltip =  funnelGroup 
                                 .on("mouseover", function(d) 
                                     {
@@ -815,9 +846,9 @@
                                         .style("top", (d3.event.pageY - 100) + "px");
                                     })
                                 .on("mouseout", function() {
-                                    d3.select(this).selectAll("circle").style("stroke", 'black').style("stroke-width", "0");
-                                    //d3.select(this).selectAll("#funnelLine").style("stroke-width", "0.3").style("stroke-opacity", "0").style("stroke", "yellow");
-                                    d3.select(this).selectAll("line").style("stroke-width", "0.3").style("stroke-opacity", "0.5").style("stroke", "yellow");
+                                    d3.select(this).selectAll("circle").style("stroke", 'white').style("stroke-width", "0");
+                                    //d3.select(this).selectAll("#funnelLine").style("stroke-width", "0.3").style("stroke-opacity", "0").style("stroke", "#fac313");
+                                    d3.select(this).selectAll("line").style("stroke-width", "0.3").style("stroke-opacity", "0.5").style("stroke", "#fac313");
                                     d3.select(this).selectAll("rect").style("fill-opacity", "0");
                                     
                                     

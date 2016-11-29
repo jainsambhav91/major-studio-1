@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="coordinates.js"></script>
+    </head>
+    <style>
+        #regions {
+               margin-left: 10px;
+               margin-bottom: 20px;
+               background: white;
+               width: 150px;
+               padding: 5px;
+               font-size: 10px;
+               height: 25px;
+            }
+            
+        #indicators {
+               /*margin-left: 50px;*/
+               margin-bottom: 20px;
+               background: white;
+               width: 150px;
+               padding: 5px;
+               font-size: 10px;
+               height: 25px;
+            }
+    </style>
+    <body>
+     <h2>Education and Economy</h2>
+     <p>Does the enrollment rate in different levels of education have a direct impact on the economy?<br>This visualization attempts to understand the state of education enrollment <b> (averaged over 2004-2014) </b><br> across all  African nations and juxtapose those numbers with different economic indicators <b> (2014 values) </b> <br>to establish how the two relate with each other.</p>
+     <p>Use the drop-downs below to compare a particular economic indicator and filter by region.</p>
+     <select id="indicators">
+        <option value="Resource Dependence">Resource Dependence</option>
+        <option value="Inequality">Inequality</option>
+        <option value="Poverty">Poverty</option>
+        <option value="Productivity">Productivity</option>
+    </select> 
+    <select id="regions">
+        <option value="Resource Dependence">All Regions</option>
+        <option value="Eastern Africa">Eastern Africa</option>
+        <option value="Western Africa">Western Africa</option>
+        <option value="Middle Africa">Middle Africa</option>
+        <option value="Southern Africa">Southern Africa</option>
+        <option value="Northern Africa">Northern Africa</option>
+    </select> 
+
+    <script>
+    
+    var width = window.innerWidth;
+    var height = window.innerWidth;
+    var boxWidth = width/10;
+    var boxHeight = boxWidth;
+    
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+      
+    
+    
+    d3.csv("quantData.csv", function(error, data) {
+            if (error) throw error;
+          
+          for(var i = 0; i<= 52; i++){
+       
+            
+            console.log("x: " + coordinates[i].x);
+            console.log("y: " + coordinates[i].y);
+            console.log("country: " + data[i]['country']);
+            console.log("------------------------------------");
+         
+         var x = width/10 + (coordinates[i]['x']/100)*boxWidth;
+         var y = (coordinates[i]['y']/100)*boxWidth;
+         
+         var box = svg
+                    .append('rect')
+                    .attr('x', x)
+                    .attr('y', y)
+                    .attr('width', boxWidth)
+                    .attr('height', boxHeight)
+                    .attr('stroke', 'grey')
+                    .attr('stroke-weight', 10)
+                    .attr('fill', 'white');
+         
+         var primary = svg
+                        .append('rect')
+                        .attr('x', x + boxWidth/2 - (((data[i]['enrolPrimary'])/100)*boxWidth)/2)
+                        .attr('y', y )
+                        .attr('width', ((data[i]['enrolPrimary'])/100)*boxWidth)
+                        .attr('height', boxHeight/3)
+                        .attr('stroke', 'black')
+                        .attr('stroke-weight', 1)
+                        .attr('fill', 'green');
+         
+         
+         
+         var secondary = svg
+                        .append('rect')
+                        .attr('x', x + boxWidth/2 - (((data[i]['enrolSecondary'])/100)*boxWidth)/2)
+                        .attr('y', y + boxHeight/3)
+                        .attr('width', ((data[i]['enrolSecondary'])/100)*boxWidth)
+                        .attr('height', boxHeight/3)
+                        .attr('stroke', 'black')
+                        .attr('stroke-weight', 1)
+                        .attr('fill', 'red'); 
+          
+          var tertiary = svg
+                        .append('rect')
+                        .attr('x', x + boxWidth/2 - (((data[i]['enrolTertiary'])/100)*boxWidth)/2)
+                        .attr('y', y + 2*(boxHeight/3))
+                        .attr('width', ((data[i]['enrolTertiary'])/100)*boxWidth)
+                        .attr('height', boxHeight/3)
+                        .attr('stroke', 'black')
+                        .attr('stroke-weight', 1)
+                        .attr('fill', 'orange');            
+            
+            
+          }    
+    });
+    </script>
+    </body>
+</html>

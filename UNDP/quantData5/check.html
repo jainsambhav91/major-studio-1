@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="coordinates.js"></script>
+    </head>
+    <style>
+        #regions {
+               margin-left: 10px;
+               margin-bottom: 20px;
+               background: white;
+               width: 150px;
+               padding: 5px;
+               font-size: 10px;
+               height: 25px;
+            }
+            
+        #indicators {
+               /*margin-left: 50px;*/
+               margin-bottom: 20px;
+               background: white;
+               width: 150px;
+               padding: 5px;
+               font-size: 10px;
+               height: 25px;
+            }
+    </style>
+    <body>
+     <h2>Education and Economy</h2>
+     <p>Does the enrollment rate in different levels of education have a direct impact on the economy?<br>This visualization attempts to understand the state of education enrollment <b> (averaged over 2004-2014) </b><br> across all  African nations and juxtapose those numbers with different economic indicators <b> (2014 values) </b> <br>to establish how the two relate with each other.</p>
+     <p>Use the drop-downs below to compare a particular economic indicator and filter by region.</p>
+     <select id="indicators">
+        <option value="Resource Dependence">Resource Dependence</option>
+        <option value="Inequality">Inequality</option>
+        <option value="Poverty">Poverty</option>
+        <option value="Productivity">Productivity</option>
+    </select> 
+    <select id="regions">
+        <option value="Resource Dependence">All Regions</option>
+        <option value="Eastern Africa">Eastern Africa</option>
+        <option value="Western Africa">Western Africa</option>
+        <option value="Middle Africa">Middle Africa</option>
+        <option value="Southern Africa">Southern Africa</option>
+        <option value="Northern Africa">Northern Africa</option>
+    </select> 
+
+    <script>
+    
+    var margin = {top: -5, right: 100, bottom: -5, left: 100},
+    width = 900,
+    height = 500;
+    
+    var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+      .append("g")
+        .attr("transform", "translate(" + 10 + "," + 100 + ")");
+        
+        
+    var rect = svg.append("rect")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("fill", "black")
+                    .style("pointer-events", "all");
+    </script>
+    </body>
+</html>

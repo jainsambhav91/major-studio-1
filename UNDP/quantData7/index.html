@@ -247,7 +247,7 @@
                                     .attr("y1", function(d, i) { if(d['enrolSecondary'] !== ""){return 20;}else{return 10000;}})
                                     .attr("x2", function(d, i) { return width/2 + parseFloat(mapX2(d['enrolSecondary']))/2 - 20 ;})
                                     .attr("y2", function(d, i) { if(d['enrolSecondary'] !== ""){return height/2;}else{return 10000;}})
-                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-width", 0.5)
                                     .attr("stroke-opacity", 0.5)
                                     .attr("stroke", "LightGrey")
                                     .style("filter", "url(#glow)");
@@ -259,7 +259,7 @@
                                     .attr("y1", function(d, i) { if(d['enrolSecondary'] !== ""){return 20;}else{return 10000;}})
                                     .attr("x2", function(d, i) {return width/2 - parseFloat(mapX2(d['enrolSecondary']))/2  + 20;})
                                     .attr("y2", function(d, i) { if(d['enrolSecondary'] !== ""){return height/2;}else{return 10000;}})
-                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-width", 0.5)
                                     .attr("stroke-opacity", 0.5)
                                     .attr("stroke", "LightGrey")
                                     .style("filter", "url(#glow)");
@@ -293,7 +293,7 @@
                                     .attr("y1", function(d, i) { if(d['enrolTertiary'] !== ""){return height/2;}else{return 10000;}})
                                     .attr("x2", function(d, i) {if(d['enrolTertiary'] !== ""){return width/2 + parseFloat(mapX3(d['enrolTertiary']))/2 - 20;} })
                                     .attr("y2", function(d, i) { if(d['enrolTertiary'] !== ""){return height - 40;}else{return 10000;}})
-                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-width", 0.5)
                                     .attr("stroke-opacity", 0.5)
                                     .attr("stroke", "LightGrey")
                                     .style("filter", "url(#glow)");
@@ -306,7 +306,7 @@
                                     .attr("y1", function(d, i) { if(d['enrolTertiary'] !== ""){return height/2;}else{return 10000;}})
                                     .attr("x2", function(d, i) { if(d['enrolTertiary'] !== ""){ return width/2 - parseFloat(mapX3(d['enrolTertiary']))/2 + 20;} })
                                     .attr("y2", function(d, i) { if(d['enrolTertiary'] !== ""){return height - 40;}else{return 10000;}})
-                                    .attr("stroke-width", 0.25)
+                                    .attr("stroke-width", 0.5)
                                     .attr("stroke-opacity", 0.5)
                                     .attr("stroke", "LightGrey")
                                     .style("filter", "url(#glow)");

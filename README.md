@@ -10,7 +10,7 @@ the region from moving it's economy toward higher-productivity sectors.
 This visualization establishes this gap between the enrollment rates across African countries. 
 The enrollment rates displayed below are averaged over the ten year peiod, from 2004 to 2014.
 The visualization further explores the change in enrollment rates over time, and compares it 
-with the change in the GINI coefficient over the same time period.
+with the change in the inequality coefficient(GINI) over the same time period.
 
 
 #### Research Question:

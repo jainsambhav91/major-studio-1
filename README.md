@@ -1,5 +1,5 @@
 # The African Education Funnel
-## A comparison of enrollment rates across different levels of education
+### A comparison of enrollment rates across different levels of education
 
 #### Description
 

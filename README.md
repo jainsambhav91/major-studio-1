@@ -1,16 +1,13 @@
 # The African Education Funnel
-## A comparison of enrollment rates across different levels of education
+## A Comparison of Enrollment Rates Across Different Levels of Education, and its Relationship to Inequality
 
 #### Description:
 
-Over the past decade, the primary school enrollment rate in 
-in sub-Saharan Africa has significantly improved , now averaging over 80%.
+Over the past decade, the primary school enrollment rate 
+in sub-Saharan Africa has significantly improved, now averaging over 80%.
 However, the poor secondary and tertiary enrollment rates are considerably restricting 
-the region from moving it's economy toward higher-productivity sectors.
-This visualization establishes this gap between the enrollment rates across African countries. 
-The enrollment rates displayed below are averaged over the ten year peiod, from 2004 to 2014.
-The visualization further explores the change in enrollment rates over time, and compares it 
-with the change in the inequality coefficient(GINI) over the same time period.
+the region from moving its economy toward higher-productivity sectors.
+This visualization establishes this gap between enrollment rates across African countries. 
 
 
 #### Research Question:
